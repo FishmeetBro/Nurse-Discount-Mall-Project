@@ -1,0 +1,24 @@
+<view class="page safe-bottom">
+  <view class="cart-head"><view><view class="title">购物车</view><text>共 {{items.length}} 种健康好物</text></view><view wx:if="{{items.length}}" class="edit" bindtap="toggleEdit">{{editing ? '完成' : '管理'}}</view></view>
+
+  <view wx:if="{{items.length == 0}}" class="empty"><image src="/assets/images/empty-orders.jpg" mode="aspectFit"/><view>购物车还是空的</view><text>去挑选适合自己的健康好物吧</text><button bindtap="goShopping">去逛逛</button></view>
+
+  <view wx:else class="cart-list">
+    <view class="cart-item" wx:for="{{items}}" wx:key="id">
+      <view class="checkbox {{item.selected ? 'checked' : ''}}" data-id="{{item.product.id}}" bindtap="toggleItem">{{item.selected ? '✓' : ''}}</view>
+      <image class="product-image" src="{{item.product.image}}" mode="aspectFill"/>
+      <view class="item-main">
+        <view class="item-name">{{item.product.name}}</view><view class="item-feature">{{item.product.feature}}</view>
+        <view class="item-bottom"><view class="price"><text>¥</text>{{item.product.nursePrice}}</view><view class="stepper"><button data-id="{{item.product.id}}" data-delta="-1" bindtap="changeQuantity">−</button><text>{{item.quantity}}</text><button data-id="{{item.product.id}}" data-delta="1" bindtap="changeQuantity">＋</button></view></view>
+      </view>
+      <view wx:if="{{editing}}" class="delete" data-id="{{item.product.id}}" bindtap="deleteItem">删除</view>
+    </view>
+  </view>
+
+  <view wx:if="{{items.length}}" class="bottom-placeholder"></view>
+  <view wx:if="{{items.length}}" class="settlement-bar">
+    <view class="select-all" bindtap="toggleAll"><view class="checkbox {{allSelected ? 'checked' : ''}}">{{allSelected ? '✓' : ''}}</view><text>全选</text></view>
+    <button wx:if="{{editing}}" class="delete-selected" bindtap="deleteSelected">删除所选</button>
+    <block wx:else><view class="total"><text>合计：</text><view><text>¥</text>{{totalPrice}}</view><text class="selected-count">已选 {{selectedCount}} 件</text></view><button class="checkout" bindtap="checkout">去结算</button></block>
+  </view>
+</view>

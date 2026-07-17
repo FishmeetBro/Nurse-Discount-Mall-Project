@@ -1,0 +1,10 @@
+<view class="notice {{compact ? 'compact' : ''}}"><view class="icon">!</view><view class="content"><view class="title">{{title}}</view><view class="text"><slot></slot></view><view class="default">仅支持二级分佣；禁止医院内推销，不得夸大医疗器械疗效。</view><view class="more pressable" bindtap="openRules">查看完整合规规则 ›</view></view></view>
+<view wx:if="{{visible}}" class="mask" bindtap="closeRules">
+  <view class="dialog" catchtap="stopPropagation">
+    <view class="dialog-icon">!</view><view class="dialog-title">护士合伙人合规规则</view>
+    <view class="rule"><text>01</text><view><view>仅限二级推广关系</view><text>不设置三级及以上关系，不以发展人员数量作为收益依据。</text></view></view>
+    <view class="rule"><text>02</text><view><view>禁止医院内推销</view><text>不得利用工作场所、患者关系或职业身份开展强制推广。</text></view></view>
+    <view class="rule"><text>03</text><view><view>不得夸大医疗功效</view><text>不作治疗、治愈、收益承诺，商品信息不替代专业诊疗建议。</text></view></view>
+    <button class="confirm pressable" bindtap="closeRules">我已知晓</button>
+  </view>
+</view>

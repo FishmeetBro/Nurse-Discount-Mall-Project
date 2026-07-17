@@ -1,0 +1,22 @@
+page {
+  background: #f5fafd;
+  color: #243746;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 28rpx;
+}
+
+/* 全局医用蓝白设计令牌对应的通用行为样式。 */
+view, button, image, text { box-sizing: border-box; }
+
+/* 根页面禁止使用 opacity 首帧动画：部分开发者工具热重载会停在首帧并造成整页透明白屏。 */
+.page { opacity: 1; transform: none; }
+.pressable { transition: transform .18s ease, opacity .18s ease; }
+.pressable:active { transform: scale(.98); opacity: .9; }
+
+button::after {
+  border: 0;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}

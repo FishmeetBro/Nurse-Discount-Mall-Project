@@ -1,0 +1,69 @@
+.page {
+  min-height: 100vh;
+  padding: 0 28rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.topbar {
+  height: 112rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand { font-size: 38rpx; line-height: 1.2; font-weight: 700; color: #176c9e; letter-spacing: 2rpx; }
+.brand-sub { margin-top: 4rpx; font-size: 16rpx; color: #83a7bc; letter-spacing: 3rpx; }
+.top-actions { display: flex; align-items: center; gap: 17rpx; }
+.partner-entry { color: #5f879b; font-size: 18rpx; text-align: center; }
+.partner-entry text { display: block; color: #258ebf; font-size: 29rpx; line-height: 32rpx; }
+.cart-entry { position: relative; width: 72rpx; height: 72rpx; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 50%; box-shadow: 0 8rpx 24rpx rgba(45, 126, 174, .11); }
+.cart-icon { font-size: 34rpx; }
+.cart-badge { position: absolute; top: -4rpx; right: -3rpx; min-width: 30rpx; height: 30rpx; padding: 0 5rpx; box-sizing: border-box; border-radius: 16rpx; background: #ff6b71; color: #fff; font-size: 19rpx; text-align: center; line-height: 30rpx; }
+
+.banner { position:relative;height:340rpx;border-radius:28rpx;overflow:hidden;background:#dff3fb;box-shadow:0 18rpx 40rpx rgba(42,137,191,.16); }
+.banner>image{width:100%;height:100%}.banner::after{content:"";position:absolute;top:0;bottom:0;left:0;width:58%;background:linear-gradient(90deg,rgba(247,252,255,.98),rgba(247,252,255,.84),rgba(247,252,255,0))}
+.banner-copy{position:absolute;z-index:2;top:37rpx;left:34rpx;width:54%;color:#245a75}.banner-tag{display:inline-block;padding:7rpx 14rpx;border-radius:18rpx;background:#dff3fb;color:#2588b5;font-size:19rpx}.banner-title{margin-top:16rpx;font-size:35rpx;font-weight:700;line-height:1.25}.banner-title text{display:block;color:#298eb9}.banner-desc{margin-top:9rpx;color:#688a9a;font-size:21rpx}.banner-button{margin-top:20rpx;width:126rpx;height:48rpx;border-radius:24rpx;background:#278fbd;color:#fff;font-size:20rpx;text-align:center;line-height:48rpx}
+
+.nurse-zone { margin-top: 26rpx; min-height: 128rpx; padding: 22rpx 24rpx; box-sizing: border-box; display: flex; align-items: center; background: linear-gradient(100deg, #effaff, #fff); border: 2rpx solid #d9eef9; border-radius: 22rpx; }
+.zone-icon { flex: none; width: 78rpx; height: 78rpx; border-radius: 20rpx; background: #dff3fd; color: #258bbf; font-size: 43rpx; text-align: center; line-height: 78rpx; }
+.zone-main { flex: 1; margin-left: 20rpx; }
+.zone-title { font-size: 29rpx; font-weight: 700; color: #27637f; }
+.zone-desc { margin-top: 7rpx; font-size: 21rpx; color: #7893a1; }
+.zone-action { font-size: 22rpx; color: #2b96cb; }
+.zone-action text { margin-left: 4rpx; font-size: 32rpx; }
+
+.section { margin-top: 42rpx; }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 24rpx; }
+.section-title { font-size: 34rpx; line-height: 1.2; font-weight: 700; color: #203b4c; }
+.section-extra, .section-more { font-size: 22rpx; color: #7da0b3; }
+.section-subtitle { margin-top: 8rpx; font-size: 21rpx; color: #9aadb8; }
+.section-more { color: #4598c3; }
+.category-list { display: flex; justify-content: space-between; }
+.category-item { width: 23%; padding: 18rpx 6rpx 16rpx; box-sizing: border-box; text-align: center; background: #fff; border: 2rpx solid transparent; border-radius: 20rpx; box-shadow: 0 8rpx 24rpx rgba(53, 112, 143, .06); transition: all .2s; }
+.category-active { border-color: #86ccee; transform: translateY(-4rpx); }
+.category-icon { width: 68rpx; height: 68rpx; margin: 0 auto 12rpx; border-radius: 20rpx; color: #4388a9; font-size: 34rpx; line-height: 68rpx; }
+.category-name { font-size: 23rpx; font-weight: 600; color: #365463; white-space: nowrap; }
+.category-note { margin-top: 6rpx; font-size: 18rpx; color: #a1b0b8; white-space: nowrap; }
+
+.product-section { margin-top: 48rpx; }
+.product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22rpx; }
+.product-grid product-card{min-width:0}
+.product-image { position: relative; height: 250rpx; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.product-emoji { width: 125rpx; height: 145rpx; display: flex; align-items: center; justify-content: center; border: 8rpx solid rgba(255,255,255,.9); border-radius: 26rpx 26rpx 38rpx 38rpx; color: #64a7c5; background: rgba(255,255,255,.65); font-size: 70rpx; box-shadow: 0 12rpx 24rpx rgba(65, 117, 141, .11); }
+.product-badge { position: absolute; top: 18rpx; left: 0; padding: 8rpx 18rpx; border-radius: 0 20rpx 20rpx 0; background: #ff7c76; color: #fff; font-size: 20rpx; }
+.qualification { position: absolute; right: 12rpx; bottom: 12rpx; padding: 6rpx 10rpx; border-radius: 10rpx; background: rgba(255,255,255,.86); color: #4f91af; font-size: 18rpx; }
+.product-info { padding: 20rpx; }
+.product-title { height: 72rpx; overflow: hidden; color: #273f4c; font-size: 26rpx; font-weight: 600; line-height: 36rpx; }
+.product-feature { margin-top: 8rpx; overflow: hidden; color: #97a8b0; font-size: 20rpx; white-space: nowrap; text-overflow: ellipsis; }
+.nurse-price-label { display: inline-block; margin-top: 17rpx; padding: 4rpx 10rpx; border-radius: 7rpx; background: #e7f6ff; color: #2589bd; font-size: 18rpx; }
+.price-row { display: flex; align-items: baseline; margin-top: 6rpx; }
+.nurse-price { color: #ef5e61; font-size: 37rpx; font-weight: 700; }
+.currency { margin-right: 2rpx; font-size: 22rpx; }
+.origin-price { margin-left: 10rpx; color: #aab5bb; font-size: 20rpx; text-decoration: line-through; }
+.card-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8rpx; }
+.sales { color: #a5b2b8; font-size: 19rpx; }
+.add-cart { width: 48rpx; height: 48rpx; border-radius: 50%; background: #3ca5d8; color: #fff; font-size: 36rpx; font-weight: 300; text-align: center; line-height: 44rpx; box-shadow: 0 5rpx 12rpx rgba(60,165,216,.25); }
+
+.compliance { margin: 38rpx 0 18rpx; padding: 24rpx; border-radius: 18rpx; background: #edf4f7; color: #7b8c95; }
+.compliance-title { padding-left: 15rpx; border-left: 5rpx solid #79b7d3; color: #587988; font-size: 22rpx; font-weight: 600; }
+.compliance-text { margin-top: 12rpx; font-size: 20rpx; line-height: 1.65; }

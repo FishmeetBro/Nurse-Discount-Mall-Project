@@ -1,0 +1,66 @@
+<view class="page safe-bottom">
+  <view class="header">
+    <view class="header-top">
+      <view class="avatar">护<view class="verified-mark">✓</view></view>
+      <view class="profile">
+        <view class="profile-name">{{partner.name}} <text>{{partner.level}}</text></view>
+        <view class="profile-id">合伙人编号：{{partner.id}}</view>
+      </view>
+      <view class="level-rule" bindtap="showRules">规则说明 ›</view>
+    </view>
+    <view class="income-card"><commission-stats data-source="{{partner}}" mask-values="{{hideIncome}}" bind:toggle="toggleIncome" /></view>
+  </view>
+
+  <view class="card link-card">
+    <view class="section-head">
+      <view><view class="section-title">我的推广链接</view><view class="section-subtitle">好友通过链接下单后计入推广业绩</view></view>
+      <view class="share-icon">↗</view>
+    </view>
+    <view class="link-box"><text>{{partner.promotionLink}}</text><view bindtap="copyLink">复制</view></view>
+    <view class="link-actions">
+      <button open-type="share" class="primary-action">分享给好友</button>
+      <button class="secondary-action" bindtap="showPosterTip">生成推广海报</button>
+    </view>
+  </view>
+
+  <view class="card team-card">
+    <view class="section-head">
+      <view><view class="section-title">我的护士团队</view><view class="section-subtitle">仅展示两级合规推广关系</view></view>
+      <view class="team-total">共 {{team.total}} 人</view>
+    </view>
+    <view class="team-grid">
+      <view class="team-item"><view class="team-icon first-level">1</view><view><text class="strong">{{team.firstLevel}}</text><text>一级护士</text></view><view class="team-growth">本月 +{{team.firstNew}}</view></view>
+      <view class="team-item"><view class="team-icon second-level">2</view><view><text class="strong">{{team.secondLevel}}</text><text>二级护士</text></view><view class="team-growth">本月 +{{team.secondNew}}</view></view>
+    </view>
+    <view class="team-note"><text>i</text> 不设置三级及以上推广关系，不鼓励以发展人员数量作为收益依据。</view>
+  </view>
+
+  <view class="card commission-card">
+    <view class="section-head"><view class="section-title">最近佣金</view><view class="detail-entry" bindtap="showAllCommission">全部明细 ›</view></view>
+    <view class="commission-list">
+      <view class="commission-item" wx:for="{{commissions}}" wx:key="id">
+        <view class="order-icon">¥</view>
+        <view class="order-info"><view>{{item.title}}</view><text>{{item.date}} · {{item.level}}</text></view>
+        <view class="commission-money"><text class="strong">+¥{{item.amount}}</text><text class="status {{item.status == '已结算' ? 'done' : ''}}">{{item.status}}</text></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="material-section">
+    <view class="section-head material-head">
+      <view><view class="section-title">朋友圈素材库</view><view class="section-subtitle">合规文案，一键复制即可使用</view></view>
+      <view class="material-count">{{materials.length}} 条素材</view>
+    </view>
+    <scroll-view class="material-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="material-list">
+        <view class="material-card" wx:for="{{materials}}" wx:key="id">
+          <view class="material-top"><text>{{item.tag}}</text><view class="material-scene">{{item.scene}}</view></view>
+          <view class="material-copy">{{item.copy}}</view>
+          <view class="material-footer"><text>{{item.words}}字 · 已合规检查</text><view data-index="{{index}}" bindtap="copyMaterial">复制文案</view></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <compliance-notice title="合伙人合规须知">禁止诱导发展下级或作收益、治疗承诺，推广内容须真实客观。</compliance-notice>
+</view>

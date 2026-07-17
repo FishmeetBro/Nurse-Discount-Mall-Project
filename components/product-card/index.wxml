@@ -1,0 +1,4 @@
+<view class="product-card pressable" bindtap="openDetail">
+  <view class="image-wrap"><image src="{{product.image}}" mode="aspectFill" lazy-load /><text wx:if="{{product.badge}}" class="badge">{{product.badge}}</text><text class="quality">资质可查</text></view>
+  <view class="info"><view class="name">{{product.name}}</view><view class="feature">{{product.feature}}</view><text class="price-label">{{verified ? '已解锁 · 护士专享' : '认证后专享'}}</text><view class="price-row"><text class="price"><text>¥</text>{{product.nursePrice}}</text><text class="origin">¥{{product.originPrice}}</text></view><view class="bottom"><text>已售 {{product.sales}}</text><button catchtap="addCart">＋</button></view></view>
+</view>

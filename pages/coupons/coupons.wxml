@@ -1,0 +1,14 @@
+<view class="page safe-bottom">
+  <view class="summary"><view><text>{{coupons.length}}</text><view>全部优惠券</view></view><view><text>{{filteredCoupons.length}}</text><view>{{activeTab == 'available' ? '当前可用' : '当前分类'}}</view></view><view><text>¥63</text><view>最高可省</view></view></view>
+  <view class="tabs"><view wx:for="{{tabs}}" wx:key="id" class="tab {{activeTab == item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="selectTab">{{item.name}}</view></view>
+  <view class="list">
+    <view wx:if="{{filteredCoupons.length == 0}}" class="empty"><view>券</view><text>暂无此类优惠券</text></view>
+    <view wx:for="{{filteredCoupons}}" wx:key="id" class="coupon {{item.status != 'available' ? 'disabled' : ''}}">
+      <view class="amount"><view><text>¥</text>{{item.amount}}</view><text>满{{item.threshold}}元可用</text></view>
+      <view class="coupon-main"><view class="coupon-title">{{item.title}} <text wx:if="{{item.tag}}">{{item.tag}}</text></view><view class="scope">{{item.scope}}</view><view class="expiry">有效期至 {{item.expiry}}</view></view>
+      <button wx:if="{{item.status == 'available'}}" data-id="{{item.id}}" bindtap="useCoupon">去使用</button>
+      <view wx:else class="status-text">{{item.tag}}</view>
+    </view>
+  </view>
+  <compliance-notice title="优惠券使用说明">优惠券均为 Demo 模拟权益，不可兑换现金。</compliance-notice>
+</view>

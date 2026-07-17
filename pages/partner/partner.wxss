@@ -1,0 +1,71 @@
+.page { min-height: 100vh; padding-bottom: 40rpx; background: #f5fafd; }
+.header { padding: 36rpx 28rpx 75rpx; background: linear-gradient(145deg, #3ba7d6, #247faa); }
+.header-top { display: flex; align-items: center; color: #fff; }
+.avatar { position: relative; width: 92rpx; height: 92rpx; border: 5rpx solid rgba(255,255,255,.65); border-radius: 50%; background: #e8f7fd; color: #278db9; font-size: 35rpx; font-weight: 700; text-align: center; line-height: 92rpx; }
+.verified-mark { position: absolute; right: -5rpx; bottom: 0; width: 29rpx; height: 29rpx; border: 3rpx solid #fff; border-radius: 50%; background: #35b58a; color: #fff; font-size: 18rpx; line-height: 29rpx; }
+.profile { flex: 1; margin-left: 20rpx; }
+.profile-name { font-size: 31rpx; font-weight: 700; }
+.profile-name text { margin-left: 10rpx; padding: 5rpx 10rpx; border-radius: 7rpx; background: rgba(255,255,255,.2); font-size: 17rpx; font-weight: 400; }
+.profile-id { margin-top: 9rpx; font-size: 19rpx; opacity: .78; }
+.level-rule { font-size: 20rpx; opacity: .86; }
+.income-card { margin-top: 34rpx; }
+.income-head { display: flex; justify-content: space-between; font-size: 21rpx; opacity: .86; }
+.income-head text { margin-left: 10rpx; }
+.settled { font-size: 20rpx; }
+.income-total { margin-top: 10rpx; font-size: 54rpx; font-weight: 700; }
+.income-grid { display: flex; margin-top: 28rpx; padding-top: 22rpx; border-top: 2rpx solid rgba(255,255,255,.17); }
+.income-grid view { flex: 1; text-align: center; }
+.income-grid view + view { border-left: 2rpx solid rgba(255,255,255,.16); }
+.income-grid text { display: block; }
+.income-grid text { font-size: 19rpx; opacity: .75; }
+.income-grid .strong { margin-top: 8rpx; font-size: 27rpx; font-weight: 700; }
+.card { margin: 22rpx 28rpx 0; padding: 28rpx; border-radius: 23rpx; background: #fff; box-shadow: 0 9rpx 28rpx rgba(48,96,119,.07); }
+.link-card { position: relative; margin-top: -45rpx; }
+.section-head { display: flex; align-items: center; justify-content: space-between; }
+.section-title { color: #294755; font-size: 29rpx; font-weight: 700; }
+.section-subtitle { margin-top: 7rpx; color: #95a6af; font-size: 19rpx; }
+.share-icon { width: 56rpx; height: 56rpx; border-radius: 50%; background: #e7f6fc; color: #318fb8; font-size: 31rpx; text-align: center; line-height: 54rpx; }
+.link-box { margin-top: 23rpx; padding: 19rpx 20rpx; display: flex; align-items: center; border: 2rpx dashed #afd5e5; border-radius: 14rpx; background: #f5fbfd; }
+.link-box text { flex: 1; overflow: hidden; color: #627d8a; font-size: 21rpx; white-space: nowrap; text-overflow: ellipsis; }
+.link-box view { margin-left: 15rpx; color: #2c93bf; font-size: 22rpx; font-weight: 600; }
+.link-actions { display: flex; gap: 18rpx; margin-top: 22rpx; }
+.link-actions button { flex: 1; height: 72rpx; margin: 0; padding: 0; border-radius: 36rpx; font-size: 23rpx; line-height: 72rpx; }
+.primary-action { background: #349fcf; color: #fff; }
+.secondary-action { border: 2rpx solid #75bad7; background: #fff; color: #338eb5; }
+.team-total, .detail-entry, .material-count { color: #3a94bb; font-size: 20rpx; }
+.team-grid { display: flex; gap: 18rpx; margin-top: 25rpx; }
+.team-item { position: relative; flex: 1; padding: 22rpx 18rpx; display: flex; align-items: center; border-radius: 17rpx; background: #f5fafc; }
+.team-icon { flex: none; width: 61rpx; height: 61rpx; margin-right: 14rpx; border-radius: 18rpx; font-size: 25rpx; font-weight: 700; text-align: center; line-height: 61rpx; }
+.first-level { background: #dff3fb; color: #318fb9; }
+.second-level { background: #e4f7f0; color: #35a47e; }
+.team-item text { display: block; }
+.team-item .strong { color: #36515e; font-size: 30rpx; font-weight: 700; }
+.team-item text { color: #8da0a9; font-size: 18rpx; }
+.team-growth { position: absolute; top: 10rpx; right: 10rpx; color: #40a987; font-size: 16rpx; }
+.team-note { margin-top: 22rpx; color: #8a9da6; font-size: 19rpx; line-height: 1.6; }
+.team-note text { display: inline-block; width: 27rpx; height: 27rpx; margin-right: 7rpx; border-radius: 50%; background: #dcecf2; color: #658997; text-align: center; line-height: 27rpx; }
+.commission-list { margin-top: 10rpx; }
+.commission-item { padding: 22rpx 0; display: flex; align-items: center; border-bottom: 2rpx solid #f0f3f4; }
+.commission-item:last-child { border-bottom: 0; padding-bottom: 3rpx; }
+.order-icon { flex: none; width: 62rpx; height: 62rpx; border-radius: 17rpx; background: #e7f6fc; color: #3698c1; font-size: 26rpx; font-weight: 700; text-align: center; line-height: 62rpx; }
+.order-info { flex: 1; min-width: 0; margin-left: 16rpx; color: #405c69; font-size: 23rpx; }
+.order-info text { display: block; margin-top: 6rpx; color: #9aabb3; font-size: 18rpx; }
+.commission-money { text-align: right; }
+.commission-money text { display: block; }
+.commission-money .strong { color: #ea6265; font-size: 24rpx; font-weight: 700; }
+.status { margin-top: 7rpx; color: #e99a4d; font-size: 17rpx; }
+.status.done { color: #46a988; }
+.material-section { margin-top: 34rpx; }
+.material-head { padding: 0 28rpx; }
+.material-scroll { margin-top: 22rpx; width: 100%; white-space: nowrap; }
+.material-list { display: inline-flex; gap: 20rpx; padding: 0 28rpx 16rpx; }
+.material-card { width: 550rpx; padding: 25rpx; box-sizing: border-box; border-radius: 22rpx; background: #fff; box-shadow: 0 8rpx 25rpx rgba(47,92,113,.07); white-space: normal; }
+.material-top { display: flex; align-items: center; justify-content: space-between; }
+.material-top > text { padding: 6rpx 12rpx; border-radius: 7rpx; background: #e7f6fc; color: #328fb8; font-size: 19rpx; }
+.material-scene { color: #9aabb3; font-size: 18rpx; }
+.material-copy { height: 146rpx; margin-top: 19rpx; overflow: hidden; color: #4f6773; font-size: 22rpx; line-height: 1.7; }
+.material-footer { margin-top: 20rpx; padding-top: 18rpx; display: flex; align-items: center; justify-content: space-between; border-top: 2rpx solid #f1f4f5; }
+.material-footer text { color: #9eacb3; font-size: 17rpx; }
+.material-footer view { padding: 9rpx 17rpx; border-radius: 20rpx; background: #3ba2cf; color: #fff; font-size: 19rpx; }
+.compliance { margin: 22rpx 28rpx 10rpx; padding: 24rpx; border-radius: 18rpx; background: #eaf2f5; color: #748a94; font-size: 20rpx; line-height: 1.65; }
+.compliance-title { margin-bottom: 8rpx; color: #557684; font-weight: 700; }

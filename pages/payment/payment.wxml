@@ -1,0 +1,7 @@
+<view class="page safe-bottom">
+  <view class="address-card"><view class="address-icon">⌖</view><view class="address"><view>林护士　138****6688</view><text>广东省深圳市南山区健康路 88 号（Demo）</text></view><view>›</view></view>
+  <view class="card"><view class="card-title">商品清单</view><view class="pay-item" wx:for="{{items}}" wx:key="id"><image src="{{item.product.image}}" mode="aspectFill"/><view><view>{{item.product.name}}</view><text>{{item.product.feature}}</text></view><view class="item-price"><view>¥{{item.product.nursePrice}}</view><text>x{{item.quantity}}</text></view></view></view>
+  <view class="card fee-card"><view><text>商品金额</text><text>¥{{goodsTotal}}</text></view><view bindtap="chooseCoupon"><text>优惠券</text><text class="discount">{{coupon ? coupon.title : '选择优惠券'}} ›</text></view><view><text>优惠金额</text><text class="discount">-¥{{discount}}</text></view><view class="payable-row"><text>应付金额</text><text>¥{{payable}}</text></view></view>
+  <compliance-notice title="支付演示说明">本页面不调用微信支付，不会产生真实扣款。</compliance-notice>
+  <view class="bottom-placeholder"></view><view class="pay-bar"><view><text>应付：</text><text class="pay-price">¥{{payable}}</text></view><button loading="{{paying}}" disabled="{{paying || items.length == 0}}" bindtap="pay">{{paying ? '处理中' : '确认支付'}}</button></view>
+</view>

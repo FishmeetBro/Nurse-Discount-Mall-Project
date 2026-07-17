@@ -1,0 +1,73 @@
+<!-- 首页：演示数据统一维护在 home.js，图片区域后续可替换为本地 image -->
+<view class="page safe-bottom">
+  <view class="topbar">
+    <view>
+      <view class="brand">护士优选</view>
+      <view class="brand-sub">NURSE HEALTH SELECT</view>
+    </view>
+    <view class="top-actions">
+      <view class="partner-entry" bindtap="openProfile">
+        <text>♙</text>
+        <view>我的</view>
+      </view>
+      <view class="partner-entry" bindtap="openPartner">
+        <text>♧</text>
+        <view>合伙人</view>
+      </view>
+      <view class="cart-entry" bindtap="openCart">
+        <text class="cart-icon">🛒</text>
+        <text wx:if="{{cartCount > 0}}" class="cart-badge">{{cartCount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 首页 Banner：本地 2:1 素材，左侧文案区与右侧人物区各自保持安全边距。 -->
+  <view class="banner pressable" bindtap="handleBanner">
+    <image src="/assets/images/banner-nurse-health.jpg" mode="aspectFill" />
+    <view class="banner-copy">
+      <view class="banner-tag">护士认证专享</view>
+      <view class="banner-title">专业守护<text>也要关爱自己</text></view>
+      <view class="banner-desc">健康好物 · 专属折扣</view>
+      <view class="banner-button">立即查看</view>
+    </view>
+  </view>
+
+  <!-- 护士身份专属折扣入口 -->
+  <view class="nurse-zone" bindtap="goCertification">
+    <view class="zone-icon">{{isVerified ? '✓' : '♙'}}</view>
+    <view class="zone-main">
+      <view class="zone-title">{{isVerified ? '护士身份已认证' : '护士专属折扣专区'}}</view>
+      <view class="zone-desc">{{isVerified ? '合伙人专享低价已解锁' : '完成执业认证，解锁合伙人专享低价'}}</view>
+    </view>
+    <view class="zone-action">{{isVerified ? '查看' : '去认证'}} <text>›</text></view>
+  </view>
+
+  <!-- 商品分类 -->
+  <view class="section">
+    <view class="section-head">
+      <view class="section-title">健康分类</view>
+      <view class="section-extra">专业严选 · 品质保障</view>
+    </view>
+    <view class="category-list">
+      <view class="category-item {{activeCategory == item.id ? 'category-active' : ''}}" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="selectCategory">
+        <view class="category-icon" style="background: {{item.color}}">{{item.icon}}</view>
+        <view class="category-name">{{item.name}}</view>
+        <view class="category-note">{{item.note}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 爆款商品 -->
+  <view class="section product-section">
+    <view class="section-head">
+      <view>
+        <view class="section-title">护士都在买</view>
+        <view class="section-subtitle">本周人气健康好物</view>
+      </view>
+      <view class="section-more" bindtap="showAllProducts">查看全部 ›</view>
+    </view>
+    <view class="product-grid"><product-card wx:for="{{filteredProducts}}" wx:key="id" product="{{item}}" verified="{{isVerified}}" bind:open="openProduct" bind:add="addToCart" /></view>
+  </view>
+
+  <compliance-notice title="合规经营提示">商品信息仅作演示，不构成诊疗建议。</compliance-notice>
+</view>

@@ -1,0 +1,86 @@
+<view class="page safe-bottom">
+  <!-- 商品主视觉：无外部图片依赖，后续可替换成本地 image -->
+  <view class="product-visual">
+    <image class="visual-product-image" src="{{product.image}}" mode="aspectFill" />
+    <view class="visual-tag">医疗健康严选</view>
+    <view class="visual-index">1 / 1</view>
+  </view>
+
+  <view class="main-card">
+    <view class="tag-row">
+      <text class="hot-tag">{{product.badge}}</text>
+      <text class="quality-tag">正品保障</text>
+    </view>
+    <view class="product-name">{{product.name}}</view>
+    <view class="product-feature">{{product.feature}}</view>
+
+    <view class="partner-price">
+      <view>
+        <view class="price-label">护士合伙人价 <text>{{isVerified ? '已解锁' : '认证后享'}}</text></view>
+        <view class="price"><text>¥</text>{{product.nursePrice}}</view>
+      </view>
+      <view class="saving">比普通价省 ¥{{saving}}</view>
+    </view>
+    <view class="normal-price-row">
+      <text>普通会员价</text>
+      <text class="normal-price">¥{{product.originPrice}}</text>
+      <text class="sales">已售 {{product.sales}}</text>
+    </view>
+  </view>
+
+  <view class="service-row">
+    <view><text>✓</text> 正品保障</view>
+    <view><text>✓</text> 资质可查</view>
+    <view><text>✓</text> 售后无忧</view>
+  </view>
+
+  <!-- 医用资质说明 -->
+  <view class="detail-card">
+    <view class="section-title">医用资质说明</view>
+    <view class="license-box">
+      <view class="license-icon">械</view>
+      <view class="license-content">
+        <view class="license-name">{{product.qualification.name}}</view>
+        <view class="license-number">注册证编号：{{product.qualification.number}}</view>
+      </view>
+      <view class="license-status">已核验</view>
+    </view>
+    <view class="qualification-list">
+      <view><text>产品类别</text><text>{{product.qualification.category}}</text></view>
+      <view><text>生产企业</text><text>{{product.qualification.manufacturer}}</text></view>
+      <view><text>适用说明</text><text>{{product.qualification.usage}}</text></view>
+    </view>
+    <view class="medical-warning">本页面信息仅作商城 Demo 展示，不构成诊断或治疗建议。请严格按照产品说明书或医务人员指导使用。</view>
+  </view>
+
+  <view class="detail-card">
+    <view class="section-title">商品亮点</view>
+    <view class="highlight-list">
+      <view wx:for="{{product.highlights}}" wx:key="*this"><text>{{index + 1}}</text>{{item}}</view>
+    </view>
+  </view>
+
+  <compliance-notice title="合规推广提示">推广文案应真实、客观，不作治疗或收益承诺。</compliance-notice>
+
+  <view class="bottom-placeholder"></view>
+  <view class="bottom-bar">
+    <view class="bar-tool" bindtap="backHome"><text>⌂</text><view>首页</view></view>
+    <button class="bar-tool share-tool" open-type="share"><text>↗</text><view>分享</view></button>
+    <button class="poster-button" bindtap="generatePoster">生成推广海报</button>
+    <button class="cart-button" bindtap="addToCart">加入购物车</button>
+  </view>
+
+  <!-- 海报预览弹层；canvas 完全在本地绘制 -->
+  <view wx:if="{{showPoster}}" class="poster-mask" bindtap="closePoster">
+    <view class="poster-panel" catchtap="stopPropagation">
+      <view class="poster-close" bindtap="closePoster">×</view>
+      <view class="poster-title">专属推广海报</view>
+      <view class="poster-subtitle">长按或保存后分享给好友</view>
+      <view class="canvas-wrap">
+        <canvas canvas-id="promotionPoster" class="poster-canvas"></canvas>
+      </view>
+      <button class="save-button" bindtap="savePoster">保存到相册</button>
+      <view class="poster-note">海报中的推广码为 Demo 图形，仅作视觉演示</view>
+    </view>
+  </view>
+</view>

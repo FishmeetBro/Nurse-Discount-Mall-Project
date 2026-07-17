@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/certification/certification",
+    "pages/product-detail/product-detail",
+    "pages/partner/partner",
+    "pages/profile/profile",
+    "pages/coupons/coupons",
+    "pages/favorites/favorites",
+    "pages/cart/cart",
+    "pages/payment/payment"
+  ],
+  "window": {
+    "navigationBarTitleText": "护士优选",
+    "navigationBarBackgroundColor": "#EAF7FF",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5FAFD",
+    "backgroundTextStyle": "light",
+    "pageOrientation": "portrait"
+  },
+  "style": "v2",
+  "usingComponents": {
+    "product-card": "/components/product-card/index",
+    "order-item": "/components/order-item/index",
+    "commission-stats": "/components/commission-stats/index",
+    "compliance-notice": "/components/compliance-notice/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

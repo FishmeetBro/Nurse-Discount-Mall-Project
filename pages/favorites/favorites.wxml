@@ -1,0 +1,6 @@
+<view class="page safe-bottom">
+  <view class="header"><view><view class="title">收藏的健康好物</view><text>共 {{favorites.length}} 件，价格与资质信息实时同步</text></view><view wx:if="{{favorites.length}}" class="clear" bindtap="clearFavorites">清空</view></view>
+  <view wx:if="{{favorites.length == 0}}" class="empty"><image src="/assets/images/empty-orders.jpg" mode="aspectFit"/><view>暂时没有收藏商品</view><text>去首页看看健康好物吧</text><button bindtap="goHome">去逛逛</button></view>
+  <view wx:else class="grid"><product-card wx:for="{{favorites}}" wx:key="id" product="{{item}}" verified="{{isVerified}}" bind:open="openProduct" bind:add="addToCart" /></view>
+  <compliance-notice title="收藏说明">收藏内容仅保存在当前设备，用于本地 Demo 演示。</compliance-notice>
+</view>

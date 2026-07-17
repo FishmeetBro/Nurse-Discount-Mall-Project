@@ -1,0 +1,56 @@
+<view class="page safe-bottom">
+  <view class="profile-header">
+    <view class="user-row">
+      <view class="avatar">护<view wx:if="{{isVerified}}" class="avatar-mark">✓</view></view>
+      <view class="user-info"><view class="user-name">林护士 <text wx:if="{{isVerified}}">护士合伙人</text></view><view class="user-id">会员编号：NURSE20260716</view></view>
+      <view class="setting" bindtap="showSetting">⚙</view>
+    </view>
+    <view class="certification-bar" bindtap="openCertification">
+      <view class="cert-icon">{{isVerified ? '✓' : '!'}}</view>
+      <view class="cert-main"><view>{{isVerified ? '护士身份已认证' : '尚未完成护士认证'}}</view><text>{{isVerified ? '专属低价与合伙人权益已解锁' : '认证后解锁护士专享低价'}}</text></view>
+      <view class="cert-action">{{isVerified ? '查看' : '去认证'}} ›</view>
+    </view>
+  </view>
+
+  <view class="asset-card">
+    <view class="asset-item" data-type="coupon" bindtap="showAsset"><text class="asset-value">{{assets.coupons}}</text><text class="asset-label">优惠券</text><view>2张即将到期</view></view>
+    <view class="asset-item" data-type="points" bindtap="showAsset"><text class="asset-value">{{assets.points}}</text><text class="asset-label">健康积分</text><view>可抵 ¥{{assets.pointsValue}}</view></view>
+    <view class="asset-item" data-type="favorite" bindtap="showAsset"><text class="asset-value">{{assets.favorites}}</text><text class="asset-label">我的收藏</text><view>健康好物</view></view>
+  </view>
+
+  <view class="card order-card">
+    <view class="section-head"><view class="section-title">我的订单</view><view class="section-more" data-status="all" bindtap="selectOrderStatus">全部订单 ›</view></view>
+    <view class="order-status-row">
+      <view wx:for="{{orderStatuses}}" wx:key="id" data-status="{{item.id}}" bindtap="selectOrderStatus">
+        <view class="status-icon">{{item.icon}}<text wx:if="{{item.count}}">{{item.count}}</text></view><view>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-list">
+    <view wx:if="{{filteredOrders.length == 0}}" class="empty-order"><image src="/assets/images/empty-orders.jpg" mode="aspectFit"/><view>当前分类暂无模拟订单</view></view>
+    <order-item wx:for="{{filteredOrders}}" wx:key="id" order="{{item}}" bind:action="handleOrder" />
+  </view>
+
+  <view class="performance-card" bindtap="openPartner">
+    <view class="performance-head"><view><view class="performance-title">分销业绩看板</view><text>本月推广概览</text></view><view>合伙人中心 ›</view></view>
+    <view class="performance-grid">
+      <view><text>本月推广订单</text><text class="performance-value">{{performance.orders}}<text>单</text></text><view>较上月 +{{performance.orderGrowth}}%</view></view>
+      <view><text>本月预估佣金</text><text class="performance-value"><text>¥</text>{{performance.commission}}</text><view>待结算 ¥{{performance.pending}}</view></view>
+      <view><text>团队护士</text><text class="performance-value">{{performance.team}}<text>人</text></text><view>本月新增 {{performance.newTeam}}</view></view>
+    </view>
+    <view class="trend">
+      <view class="trend-title">近6月推广趋势 <text>单位：订单</text></view>
+      <view class="chart">
+        <view wx:for="{{performance.trend}}" wx:key="month" class="bar-column"><view class="bar-value">{{item.value}}</view><view class="bar-track"><view class="bar" style="height: {{item.height}}%"></view></view><text>{{item.month}}</text></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card service-card">
+    <view class="section-title">常用服务</view>
+    <view class="service-grid"><view wx:for="{{services}}" wx:key="id" data-id="{{item.id}}" bindtap="openService"><view style="background: {{item.color}}">{{item.icon}}</view><text>{{item.name}}</text></view></view>
+  </view>
+
+  <compliance-notice title="个人中心合规提示">页面金额、订单及业绩均为本地模拟数据。</compliance-notice>
+</view>
